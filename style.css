@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Rubrikstilar */
+h1, h2 {
+    color: #4eacc5;
+}
+
+h1 {
+    font-size: 3%;
+}
+h2 {
+    font-size: 2%;
+}
+
+/* Framhävd text (Klass 2) */
+.highlight {
+    color: #ff9f43;
+    font-weight: bold;
+}
+
+/* Länk- och bildstilar */
+a {
+    color: #4eacc5;
+}
+
+img {
+    max-width: 200px;
+}
+
