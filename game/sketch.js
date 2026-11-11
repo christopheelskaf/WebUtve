@@ -38,7 +38,32 @@ function draw() {
     if (keyIsDown(DOWN_ARROW)) {
       catY = catY + catSpeed;
     }
+    catX = constrain(catX, catSize / 2, width - catSize / 2);
+    catY = constrain(catY, catSize / 2, height - catSize / 2);
 
+    playerMouseX = constrain(mouseX, mouseSize / 2, width - mouseSize / 2);
+    playerMouseY = constrain(mouseY, mouseSize / 2, height - mouseSize / 2);
+
+    let d = dist(catX, catY, playerMouseX, playerMouseY);
+    if (d < (catSize / 2 + mouseSize / 2)) {
+      gameState = "GAMEOVER";
+    }
+
+    fill('orange');
+    triangle(catX - 22, catY - 12, catX - 10, catY - 32, catX - 2, catY - 24);
+    triangle(catX + 22, catY - 12, catX + 10, catY - 32, catX + 2, catY - 24);
+
+    fill('orange');
+    circle(catX, catY, catSize);
+
+    fill(255);
+    circle(catX - 10, catY - 5, 12);
+    circle(catX + 10, catY - 5, 12);
+
+    fill('pink');
+    circle(playerMouseX, playerMouseY, mouseSize);
+
+  } else if (gameState === "GAMEOVER") {
     catX = constrain(catX, catSize / 2, width - catSize / 2);
     catY = constrain(catY, catSize / 2, height - catSize / 2);
 
@@ -79,3 +104,4 @@ function mousePressed() {
     gameState = "PLAY";
   }
 }
+
